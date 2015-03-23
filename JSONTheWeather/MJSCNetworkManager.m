@@ -10,11 +10,12 @@
 #import "MJSCDay.h"
 
 #define CityWeatherURL(city) ([NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/forecast/daily?q=%@&units=metric&lang=sp", city])
+#define IconURL(iconName) ([NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png", iconName])
 
 @implementation MJSCNetworkManager
 
 -(void)downloadDaysFromCity:(NSString *)city
-            completionBlock:(void(^)(NSArray *days, NSError *error))completion {
+            completionBlock:(void(^)(NSArray *days, NSError *error))completion{
     
    
     NSURL *url = [NSURL URLWithString:CityWeatherURL(city)];
@@ -39,6 +40,27 @@
         }
         
     }];
+}
+
+
+-(void)downloadIconFromIconName:(NSString *)iconName
+                 completionBlock:(void(^)(UIImage* image, NSError *error))completion {
+    
+    NSURL *url = [NSURL URLWithString:IconURL(iconName)];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (data) {
+            UIImage *image = [[UIImage alloc] initWithData:data];
+            completion(image, nil);
+        } else {
+            NSError *errorNoData = [[NSError alloc] init];
+            completion(nil, errorNoData);
+            NSLog(@"Error in request, no data returned");
+        }
+    }];
+    
 }
 
 

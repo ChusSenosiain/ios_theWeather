@@ -7,6 +7,7 @@
 //
 
 #import "MJSCHomeViewController.h"
+#import "MJSCDayTableViewCell.h"
 #import "MJSCNetworkManager.h"
 #import "MJSCDay.h"
 
@@ -16,10 +17,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *city;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, copy) NSArray *days;
+@property (nonatomic, strong) MJSCNetworkManager *networkManager;
 
 - (IBAction)btnSearchWeatherPush:(id)sender;
 
 @end
+
+
 
 @implementation MJSCHomeViewController
 
@@ -30,6 +34,8 @@
     
     [self configureTableView];
     
+    _networkManager = [[MJSCNetworkManager alloc] init];
+    
     self.activityIndicator.hidden = YES;
     
     self.title = @"El tiempo :)";
@@ -39,6 +45,10 @@
 }
 
 - (void)configureTableView {
+    
+     // Registro la celda personalizada
+    [self registerNibs];
+    
     self.table.dataSource = self;
     self.table.delegate = self;
     self.table.alpha = 0;
@@ -56,9 +66,7 @@
     self.activityIndicator.hidden = NO;
     [self.activityIndicator startAnimating];
     
-    MJSCNetworkManager *nt = [[MJSCNetworkManager alloc] init];
-    
-    [nt downloadDaysFromCity:self.city.text completionBlock:^(NSArray *days, NSError *error) {
+    [self.networkManager downloadDaysFromCity:self.city.text completionBlock:^(NSArray *days, NSError *error) {
         
         [self.activityIndicator stopAnimating];
         
@@ -92,14 +100,48 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"celda_dia"];
-    
+    // Obtengo el día
     MJSCDay *day = [self.days objectAtIndex:indexPath.row];
     
+    // Crear la celda
+    MJSCDayTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[MJSCDayTableViewCell cellId] forIndexPath:indexPath];
+    
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:day.day
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterFullStyle];
+
+    cell.day.text = dateString;
+    
+    [self.networkManager downloadIconFromIconName:day.icon completionBlock:^(UIImage *image, NSError *error) {
+        if (!error) {
+            cell.icon.image = image;
+        }
+    }];
+    
+    /* Con celda sin personalizar
+    // Configuro la celda
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"celda_dia"];
+    
+    // Muestro el día en la celda
     cell.textLabel.text = day.desc;
     
+     */
     return cell;
     
+}
+
+// Darle un alto máximo a la celda
+-(CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [MJSCDayTableViewCell height];
+}
+
+
+
+#pragma mark - Utils
+
+-(void) registerNibs {
+    UINib *nib = [UINib nibWithNibName:@"MJSCDayTableViewCell" bundle:nil];
+    [self.table registerNib:nib forCellReuseIdentifier:[MJSCDayTableViewCell cellId]];
 }
 
 

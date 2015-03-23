@@ -15,7 +15,7 @@
 @property(nonatomic, strong) NSNumber *tempMax;
 @property(nonatomic, strong) NSNumber *humidity;
 @property(nonatomic, strong) NSString *desc;
-@property (nonatomic, strong) NSURL *iconURL;
+@property (nonatomic, strong) NSString *icon;
 
 
 -(id) initWithJSONDictionary:(NSDictionary *) dictionary;

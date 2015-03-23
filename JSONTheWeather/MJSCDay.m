@@ -59,8 +59,7 @@ static const NSString *k_SERVER_IMAGE_URL = @"http://openweathermap.org/img/w/";
         NSArray *weather = [dictionary objectForKey:@"weather"];
         NSDictionary *weatherDic = [weather objectAtIndex:0];
         _desc = [weatherDic objectForKey:@"description"];
-        
-        _iconURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@%@", k_SERVER_IMAGE_URL, [weatherDic objectForKey:@"icon"], @".png"]];
+        _icon = [weatherDic objectForKey:@"icon"];
 
     }
     

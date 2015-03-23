@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="MJSCDayTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="labelDay" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WP-e0-Mk9">
+                        <rect key="frame" x="64" y="8" width="248" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dwu-BU-uI9">
+                        <rect key="frame" x="0.0" y="-1" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="HUs-ki-cwn"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3WP-e0-Mk9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="I0F-5D-Y1X"/>
+                    <constraint firstItem="3WP-e0-Mk9" firstAttribute="leading" secondItem="dwu-BU-uI9" secondAttribute="trailing" constant="4" id="Rrf-eb-F3y"/>
+                    <constraint firstItem="dwu-BU-uI9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-9" id="fBd-JB-0fn"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="3WP-e0-Mk9" secondAttribute="bottom" constant="22.5" id="hs2-Rc-9ow"/>
+                    <constraint firstItem="3WP-e0-Mk9" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="lSj-Yg-GZK"/>
+                    <constraint firstItem="dwu-BU-uI9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qZO-Dw-KTo"/>
+                    <constraint firstItem="dwu-BU-uI9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="sUF-6R-yG4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="day" destination="3WP-e0-Mk9" id="u0B-gB-MUS"/>
+                <outlet property="icon" destination="dwu-BU-uI9" id="jl7-Xs-5zJ"/>
+            </connections>
+            <point key="canvasLocation" x="396" y="320"/>
+        </tableViewCell>
+    </objects>
+</document>

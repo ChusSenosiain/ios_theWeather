@@ -16,6 +16,8 @@
 		BBDFAF6E1ABC98D8001220E8 /* MJSCHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBDFAF6C1ABC98D8001220E8 /* MJSCHomeViewController.xib */; };
 		BBDFAF711ABCA4D6001220E8 /* MJSCDay.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAF701ABCA4D6001220E8 /* MJSCDay.m */; };
 		BBDFAF8F1ABECA85001220E8 /* MJSCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAF8E1ABECA85001220E8 /* MJSCNetworkManager.m */; };
+		BBDFAF971AC075C1001220E8 /* MJSCDayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAF951AC075C1001220E8 /* MJSCDayTableViewCell.m */; };
+		BBDFAF981AC075C1001220E8 /* MJSCDayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBDFAF961AC075C1001220E8 /* MJSCDayTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,9 @@
 		BBDFAF701ABCA4D6001220E8 /* MJSCDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJSCDay.m; sourceTree = "<group>"; };
 		BBDFAF8D1ABECA85001220E8 /* MJSCNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJSCNetworkManager.h; sourceTree = "<group>"; };
 		BBDFAF8E1ABECA85001220E8 /* MJSCNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJSCNetworkManager.m; sourceTree = "<group>"; };
+		BBDFAF941AC075C1001220E8 /* MJSCDayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJSCDayTableViewCell.h; sourceTree = "<group>"; };
+		BBDFAF951AC075C1001220E8 /* MJSCDayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJSCDayTableViewCell.m; sourceTree = "<group>"; };
+		BBDFAF961AC075C1001220E8 /* MJSCDayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJSCDayTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +92,7 @@
 		BBDFAF441ABC96AC001220E8 /* JSONTheWeather */ = {
 			isa = PBXGroup;
 			children = (
+				BBDFAF931AC07578001220E8 /* ViewController */,
 				BBDFAF8C1ABECA45001220E8 /* Controller */,
 				BBDFAF721ABCABDB001220E8 /* Model */,
 				BBDFAF491ABC96AC001220E8 /* AppDelegate.h */,
@@ -94,9 +100,6 @@
 				BBDFAF4C1ABC96AC001220E8 /* Images.xcassets */,
 				BBDFAF4E1ABC96AC001220E8 /* LaunchScreen.xib */,
 				BBDFAF451ABC96AC001220E8 /* Supporting Files */,
-				BBDFAF6A1ABC98D8001220E8 /* MJSCHomeViewController.h */,
-				BBDFAF6B1ABC98D8001220E8 /* MJSCHomeViewController.m */,
-				BBDFAF6C1ABC98D8001220E8 /* MJSCHomeViewController.xib */,
 			);
 			path = JSONTheWeather;
 			sourceTree = "<group>";
@@ -143,6 +146,19 @@
 				BBDFAF8E1ABECA85001220E8 /* MJSCNetworkManager.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		BBDFAF931AC07578001220E8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BBDFAF6A1ABC98D8001220E8 /* MJSCHomeViewController.h */,
+				BBDFAF6B1ABC98D8001220E8 /* MJSCHomeViewController.m */,
+				BBDFAF6C1ABC98D8001220E8 /* MJSCHomeViewController.xib */,
+				BBDFAF941AC075C1001220E8 /* MJSCDayTableViewCell.h */,
+				BBDFAF951AC075C1001220E8 /* MJSCDayTableViewCell.m */,
+				BBDFAF961AC075C1001220E8 /* MJSCDayTableViewCell.xib */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +244,7 @@
 				BBDFAF501ABC96AC001220E8 /* LaunchScreen.xib in Resources */,
 				BBDFAF6E1ABC98D8001220E8 /* MJSCHomeViewController.xib in Resources */,
 				BBDFAF4D1ABC96AC001220E8 /* Images.xcassets in Resources */,
+				BBDFAF981AC075C1001220E8 /* MJSCDayTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +267,7 @@
 				BBDFAF481ABC96AC001220E8 /* main.m in Sources */,
 				BBDFAF8F1ABECA85001220E8 /* MJSCNetworkManager.m in Sources */,
 				BBDFAF711ABCA4D6001220E8 /* MJSCDay.m in Sources */,
+				BBDFAF971AC075C1001220E8 /* MJSCDayTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
